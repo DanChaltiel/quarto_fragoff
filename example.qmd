@@ -1,0 +1,40 @@
+---
+title: "FragOff Example"
+format:
+  revealjs: 
+    embed-resources: true
+    incremental: true
+    slideNumber: true
+revealjs-plugins:
+  - fragoff
+---
+
+## Instructions
+
+::: callout-note
+## Fragments
+
+This presentation embed incremental bullets (using `incremental: true`), a fragment div, and an ellipsis. By default, they will all be turned to fragments and appear one after another.
+:::
+
+::: callout-important
+## Take control
+
+Check the checkbox in the slide menu (down left) to disable/enable the fragments.
+:::
+
+## Bullet List
+
+-   item1
+-   item2
+-   item3
+
+## Also
+
+::: fragment
+I'm a fragment
+:::
+
+. . .
+
+And I appear after an ellipsis (`. . .`)
