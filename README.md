@@ -11,11 +11,19 @@ Well, worry no more! This simple extension lets you toggle fragments on and off 
 To install, run this command in your terminal (not your R console):
 
 ```bash
-quarto add DanChaltiel/fragoff
+quarto add DanChaltiel/quarto_fragoff
 ```
 
 This will install the extension under the `_extensions` subdirectory.
+This subdirectory will be located in your current working directory.
 If you're using version control (Git, SVN, etc.), you will want to check in this directory.
+
+Then, add this to the root level of your quarto YAML header:
+
+```yaml
+revealjs-plugins:
+  - fragoff
+```
 
 ## Using
 
