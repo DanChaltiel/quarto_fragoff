@@ -2,8 +2,7 @@ window.RevealFragOff = function () {
   return {
     id: "RevealFragOff",
     init: function (deck) {
-
-      console.log(deck);
+      fragoff.log(deck);
 
       let toolbar = document.querySelector(".slide-menu-items");
 
@@ -26,20 +25,20 @@ window.RevealFragOff = function () {
 
       let fragments = document.querySelectorAll('.fragment');
       newLi.addEventListener("click", function() {
-        console.log("<li> cliquée !");
         checkbox.checked = !checkbox.checked;
         checkbox.dispatchEvent(new Event("change"));
+        fragoff.log("<li> cliquée !");
       });
       checkbox.addEventListener("change", function() {
           if (this.checked) {
-            console.log("Checkbox cochée !");
+            fragoff.log("Checkbox décochée -> cochée");
             fragments.forEach(frag => {
               frag.classList.add('fragment')
               frag.classList.remove('disabled_fragment')
               label.textContent = "Fragments enabled"
             });
           } else {
-            console.log("Checkbox décochée !");
+            fragoff.log("Checkbox cochée -> décochée");
             fragments.forEach(frag => {
               frag.classList.add('disabled_fragment')
               frag.classList.remove('fragment')
@@ -52,3 +51,10 @@ window.RevealFragOff = function () {
   };
 };
 
+//run `fragoff.verbose = true` in the console to activate the logs
+window.fragoff = {
+  verbose: false,
+  log: function(...args) {
+    if (this.verbose) console.log(...args)
+  }
+}

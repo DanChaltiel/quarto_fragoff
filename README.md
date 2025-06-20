@@ -33,6 +33,8 @@ This extension will add a checkbox in the slide men:
 
 It's that simple!
 
+Run `fragoff.verbose = true` in the console to activate the logs.
+
 ## Example
 
 Here is the source code for a minimal example: [example.qmd](example.qmd).
