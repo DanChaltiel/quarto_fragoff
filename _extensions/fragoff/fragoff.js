@@ -32,17 +32,17 @@ window.RevealFragOff = function () {
       checkbox.addEventListener("change", function() {
           if (this.checked) {
             fragoff.log("Checkbox décochée -> cochée");
+            label.textContent = "Fragments enabled"
             fragments.forEach(frag => {
               frag.classList.add('fragment')
               frag.classList.remove('disabled_fragment')
-              label.textContent = "Fragments enabled"
             });
           } else {
             fragoff.log("Checkbox cochée -> décochée");
+            label.textContent = "Fragments disabled"
             fragments.forEach(frag => {
               frag.classList.add('disabled_fragment')
               frag.classList.remove('fragment')
-              label.textContent = "Fragments disabled"
             });
           }
       });
