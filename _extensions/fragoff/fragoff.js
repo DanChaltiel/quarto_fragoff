@@ -5,6 +5,7 @@ window.RevealFragOff = function () {
       fragoff.log(deck);
 
       let toolbar = document.querySelector(".slide-menu-items");
+      let fragments = document.querySelectorAll('.fragment');
 
       let newLi = document.createElement("li");
       newLi.classList.add("slide-menu-item");
@@ -15,7 +16,6 @@ window.RevealFragOff = function () {
       checkbox.checked = true;
 
       let label = document.createElement("label");
-      label.htmlFor = "fragoff_checkbox";
       label.textContent = "Fragments enabled";
 
       newLi.appendChild(checkbox);
@@ -23,12 +23,15 @@ window.RevealFragOff = function () {
       newLi.style.textAlign = "center";
       toolbar.insertBefore(newLi, toolbar.firstChild);
 
-      let fragments = document.querySelectorAll('.fragment');
-      newLi.addEventListener("click", function() {
-        checkbox.checked = !checkbox.checked;
-        checkbox.dispatchEvent(new Event("change"));
+      newLi.addEventListener("click", function(event) {
         fragoff.log("<li> cliquée !");
+        if(event.srcElement.id!="fragoff_checkbox"){
+          checkbox.checked = !checkbox.checked;
+          checkbox.dispatchEvent(new Event("change"));
+          event.stopPropagation();
+        }
       });
+
       checkbox.addEventListener("change", function() {
           if (this.checked) {
             fragoff.log("Checkbox décochée -> cochée");
