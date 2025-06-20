@@ -24,6 +24,7 @@ window.RevealFragOff = function () {
       toolbar.insertBefore(newLi, toolbar.firstChild);
 
       newLi.addEventListener("click", function(event) {
+        fragments = document.querySelectorAll('.fragment');
         fragoff.log("<li> cliquée !");
         if(event.srcElement.id!="fragoff_checkbox"){
           checkbox.checked = !checkbox.checked;
