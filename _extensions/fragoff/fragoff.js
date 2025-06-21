@@ -5,7 +5,6 @@ window.RevealFragOff = function () {
       fragoff.log(deck);
 
       let toolbar = document.querySelector(".slide-menu-items");
-      let fragments = document.querySelectorAll('.fragment');
 
       let newLi = document.createElement("li");
       newLi.classList.add("slide-menu-item");
@@ -24,7 +23,6 @@ window.RevealFragOff = function () {
       toolbar.insertBefore(newLi, toolbar.firstChild);
 
       newLi.addEventListener("click", function(event) {
-        fragments = document.querySelectorAll('.fragment');
         fragoff.log("<li> cliquée !");
         if(event.srcElement.id!="fragoff_checkbox"){
           checkbox.checked = !checkbox.checked;
@@ -35,15 +33,17 @@ window.RevealFragOff = function () {
 
       checkbox.addEventListener("change", function() {
           if (this.checked) {
-            fragoff.log("Checkbox décochée -> cochée");
+            fragoff.log("Checkbox unchecked -> checked: enabling fragments");
             label.textContent = "Fragments enabled"
+            const fragments = document.querySelectorAll('.disabled_fragment');
             fragments.forEach(frag => {
               frag.classList.add('fragment')
               frag.classList.remove('disabled_fragment')
             });
           } else {
-            fragoff.log("Checkbox cochée -> décochée");
+            fragoff.log("Checkbox checked -> unchecked:  disabling fragments");
             label.textContent = "Fragments disabled"
+            const fragments = document.querySelectorAll('.fragment');
             fragments.forEach(frag => {
               frag.classList.add('disabled_fragment')
               frag.classList.remove('fragment')
