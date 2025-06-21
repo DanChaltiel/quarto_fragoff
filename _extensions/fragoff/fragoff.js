@@ -4,9 +4,10 @@ window.RevealFragOff = function () {
     init: function (deck) {
       fragoff.log(deck);
 
-      let toolbar = document.querySelector(".slide-menu-items");
+      const menu = document.querySelector(".slide-menu");
+      const panel = document.querySelector(".slide-menu-panel");
 
-      let newLi = document.createElement("li");
+      const newLi = document.createElement("span");
       newLi.classList.add("slide-menu-item");
 
       let checkbox = document.createElement("input");
@@ -20,7 +21,8 @@ window.RevealFragOff = function () {
       newLi.appendChild(checkbox);
       newLi.appendChild(label);
       newLi.style.textAlign = "center";
-      toolbar.insertBefore(newLi, toolbar.firstChild);
+      menu.insertBefore(newLi, panel);
+
 
       newLi.addEventListener("click", function(event) {
         fragoff.log("<li> cliquée !");
