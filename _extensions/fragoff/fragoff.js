@@ -7,24 +7,24 @@ window.RevealFragOff = function () {
       const menu = document.querySelector(".slide-menu");
       const panel = document.querySelector(".slide-menu-panel");
 
-      const newLi = document.createElement("span");
-      newLi.classList.add("slide-menu-item");
+      const span = document.createElement("span");
+      span.classList.add("slide-menu-item");
 
-      let checkbox = document.createElement("input");
+      const checkbox = document.createElement("input");
       checkbox.type = "checkbox";
       checkbox.id = "fragoff_checkbox";
       checkbox.checked = true;
 
-      let label = document.createElement("label");
+      const label = document.createElement("label");
       label.textContent = "Fragments enabled";
 
-      newLi.appendChild(checkbox);
-      newLi.appendChild(label);
-      newLi.style.textAlign = "center";
-      menu.insertBefore(newLi, panel);
+      span.appendChild(checkbox);
+      span.appendChild(label);
+      span.style.textAlign = "center";
+      menu.insertBefore(span, panel);
 
 
-      newLi.addEventListener("click", function(event) {
+      span.addEventListener("click", function(event) {
         fragoff.log("<li> cliquée !");
         if(event.srcElement.id!="fragoff_checkbox"){
           checkbox.checked = !checkbox.checked;
