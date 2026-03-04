@@ -27,7 +27,7 @@ revealjs-plugins:
 
 ## Using
 
-This extension will add a checkbox in the slide men: 
+This extension will add a checkbox in the slide menu: 
  - When **checked** (default), fragments are enabled
  - When **uncheckded**, they are disabled.
 
@@ -37,5 +37,5 @@ Run `fragoff.verbose = true` in the console to activate the logs.
 
 ## Example
 
-Here is the source code for a minimal example: [example.qmd](example.qmd).
+Here is the source code for a minimal example: [example.qmd](example.qmd) and the resulting [slideshow](https://danchaltiel.github.io/quarto_fragoff/example.html).
 
